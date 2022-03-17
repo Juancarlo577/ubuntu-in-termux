@@ -7,6 +7,20 @@ install1 () {
 directory=ubuntu-fs
 UBUNTU_VERSION=18.04.5
 
+dpkg -s proot  &> /dev/null
+
+if [ $? -eq 0 ]; then
+
+    echo "Package proot is installed!"
+
+else
+
+    echo "Package proot is NOT installed!"
+
+    exit 1
+
+fi
+
 #start version selection
 select UBUNTU_VERSION in 18.04.5 20.04.4 21.04 21.10
 do
