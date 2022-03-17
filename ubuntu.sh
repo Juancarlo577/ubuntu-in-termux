@@ -8,7 +8,7 @@ directory=ubuntu-fs
 UBUNTU_VERSION=18.04.5
 
 #start version selection
-select UBUNTU_VERSION in 14.04.6 16.04.6 18.04.5 20.04.4 21.04 21.10
+select UBUNTU_VERSION in 18.04.5 20.04.4 21.04 21.10
 do
 echo "now installing Ubuntu version $UBUNTU_VERSION" 
 done
