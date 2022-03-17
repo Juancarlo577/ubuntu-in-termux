@@ -1,10 +1,19 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
+
 time1="$( date +"%r" )"
 
 install1 () {
 directory=ubuntu-fs
-UBUNTU_VERSION=21.04
+UBUNTU_VERSION=18.04.5
+
+#start version selection
+select UBUNTU_VERSION in 14.04.6 16.04.6 18.04.5 20.04.3 21.04 21.10
+do
+echo "now installing Ubuntu version $UBUNTU_VERSION" 
+done
+#end version selection
+
 if [ -d "$directory" ];then
 first=1
 printf "\x1b[38;5;214m[${time1}]\e[0m \x1b[38;5;227m[WARNING]:\e[0m \x1b[38;5;87m Skipping the download and the extraction\n"
@@ -28,6 +37,7 @@ case "$ARCHITECTURE" in
 aarch64) ARCHITECTURE=arm64;;
 arm) ARCHITECTURE=armhf;;
 amd64|x86_64) ARCHITECTURE=amd64;;
+x86|i*86) ARCHITECTURE=i386;;
 *)
 printf "\x1b[38;5;214m[${time1}]\e[0m \x1b[38;5;203m[ERROR]:\e[0m \x1b[38;5;87m Unknown architecture :- $ARCHITECTURE"
 exit 1
@@ -68,8 +78,6 @@ cd \$(dirname \$0)
 ## unset LD_PRELOAD in case termux-exec is installed
 unset LD_PRELOAD
 command="proot"
-## uncomment following line if you are having FATAL: kernel too old message.
-#command+=" -k 4.14.81"
 command+=" --link2symlink"
 command+=" -0"
 command+=" -r $directory"
