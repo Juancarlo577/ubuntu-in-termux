@@ -8,7 +8,7 @@ This is a script that allows you to install Ubuntu in your termux application wi
 
 ## Updates
 
-**• added a version selector to the script**
+**• added ubuntu noble to the list**
 
 ## Important
 
