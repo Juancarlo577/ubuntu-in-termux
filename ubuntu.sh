@@ -5,28 +5,25 @@ time1="$( date +"%r" )"
 
 install1 () {
 directory=ubuntu-fs
-UBUNTU_VERSION=18.04.5
+UBUNTU_VERSION=21.04
 
 dpkg -s proot  &> /dev/null
 
 if [ $? -eq 0 ]; then
-
-    echo "Package proot is installed!"
-
+     echo "Package proot is installed!"
 else
-
-    echo "Package proot is NOT installed!"
-
-    exit 1
-
+     echo "Package proot is NOT installed!"
+     exit 1
 fi
 
-#start version selection
-select UBUNTU_VERSION in 18.04.5 20.04.4 21.04 21.10
+
+###start version selection
+select UBUNTU_VERSION in 14.04.6 16.04.6 18.04.5 20.04.3 21.04 21.10 22.04 24.04.1
 do
-echo "now installing Ubuntu version $UBUNTU_VERSION" 
+echo "now installing Ubuntu version $UBUNTU_VERSION"
+break;
 done
-#end version selection
+###end version selection
 
 if [ -d "$directory" ];then
 first=1
