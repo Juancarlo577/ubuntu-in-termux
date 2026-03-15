@@ -6,7 +6,10 @@ time1="$( date +"%r" )"
 install1 () {
 directory=ubuntu-fs
 UBUNTU_VERSION=21.04
-
+Yes_No=3
+Yes=1
+No=0
+###check if proot exists
 dpkg -s proot  &> /dev/null
 
 if [ $? -eq 0 ]; then
@@ -14,8 +17,21 @@ if [ $? -eq 0 ]; then
 else
      echo "Package proot is NOT installed!"
      exit 1
+     
 fi
 
+###end proot check
+
+###start wget check
+dpkg -s wget  &> /dev/null
+
+if [ $? -eq 0 ]; then
+     echo "Package wget is installed!"
+else
+     echo "Package wget is NOT installed!"
+     exit 1
+fi
+###end wget check
 
 ###start version selection
 select UBUNTU_VERSION in 14.04.6 16.04.6 18.04.5 20.04.3 21.04 21.10 22.04 24.04.1
