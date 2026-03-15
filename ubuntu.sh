@@ -34,7 +34,7 @@ fi
 ###end wget check
 
 ###start version selection
-select UBUNTU_VERSION in 18.04.5 20.04.5 22.04.5 24.04.4 25.10 
+select UBUNTU_VERSION in 18.04.5 20.04.5 22.04.5 24.04.4 
 do
 echo "now installing Ubuntu version $UBUNTU_VERSION"
 break;
